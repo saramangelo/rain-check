@@ -37,7 +37,12 @@ var button = document.querySelector('.button');
 var searchInput = document.querySelector('.search-input');
 var citiesUl = document.querySelector('.cities');
 
-console.log(button);
+function grabUserInput(){
+console.log('hello')
+}
+
+button.addEventListener("click", grabUserInput);
+
 
 
 
