@@ -1,8 +1,8 @@
-/* OFFICE HOURS NOTES:
+// OFFICE HOURS NOTES:
 // for one call, use geo coding
 // use the daily forecast 16 Days
 
-/* FROM MODULE 6:
+// FROM MODULE 6:
 // AS A traveler
 // I WANT to see the weather outlook for multiple cities
 // SO THAT I can plan a trip accordingly
@@ -33,11 +33,21 @@
 
 var APIkey = "e84606a3a3ed2806c22526e2f0cab7bd";
 
-var formEl = $('.form');
-var button = $('.button');
-var searchInput = $('.search-input');
-var spanMsg = $('.msg');
-var citiesUl = $('.cities');
+var button = document.querySelector('.button');
+var searchInput = document.querySelector('.search-input');
+var citiesUl = document.querySelector('.cities');
+
+console.log(button);
+
+
+
+
+
+
+
+
+
+
 
 
 
