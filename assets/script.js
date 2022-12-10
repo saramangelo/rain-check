@@ -61,17 +61,23 @@ function fetchForecastData(cityName) {
     });
 }
 
-function filterForecastData(data) {
+function filterForecastData({ list }) {
   var count = 0;
 
   while (count <= 32) {
-    printForecastData(data);
+    printForecastData(list[count]);
     count = count + 8;
   }
 }
 
-function printForecastData(data) {
-  // data - list[0] - dt_txt, weather[0].description, weather[0].icon, main.temp, main.humidity, wind.speed
+function printForecastData({ dt_txt, weather, main, wind }) {
+  var forecastDate = dt_txt.split(" ")[0];
+  var { description, icon } = weather[0];
+  var { temp, humidity } = main;
+  var { speed } = wind;
+  let iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
+
+//   TODO: Create Elements and Append to container
 }
 
 button.addEventListener("click", grabUserInput);
