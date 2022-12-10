@@ -51,9 +51,15 @@ function fetchCurrentWeather(cityName) {
 
 function fetchForecastData(cityName) {
   var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIkey}`;
-  //TODO: Finish fetch request
   // list going by 8s, max 32
   // data - list[0] - dt_txt, weather[0].description, weather[0].icon, main.temp, main.humidity, wind.speed
+  fetch(forecastUrl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      filterForecastData(data);
+    });
 }
 
 button.addEventListener("click", grabUserInput);
