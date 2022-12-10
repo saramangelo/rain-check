@@ -27,5 +27,17 @@
 // FETCH URL
 5. click on a city in search history, presented with CURRENT and FUTURE CONDITIONS for that city.
 // LOCAL STORAGE 
+*/
+
+// MY CODE:
+
+var APIkey = "e84606a3a3ed2806c22526e2f0cab7bd";
+
+var formEl = $('.form');
+var button = $('.button');
+var searchInput = $('.search-input');
+var spanMsg = $('.msg');
+var citiesUl = $('.cities');
+
 
 
