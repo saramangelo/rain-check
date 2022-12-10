@@ -27,6 +27,7 @@
 // FETCH URL
 5. click on a city in search history, presented with CURRENT and FUTURE CONDITIONS for that city.
 // LOCAL STORAGE 
+// BUTTONS FOR EACH CITY
 */
 
 // MY CODE:
@@ -45,8 +46,14 @@ function grabUserInput() {
 
 function fetchCurrentWeather(cityName) {
   var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${APIkey}`;
-  //TODO: Finish fetch request
-  // data - weather[0].description, weather[0].icon, main.temp, main.humidity, wind.speed
+
+  fetch(currentWeatherUrl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      printCurrentWeather(data);
+    });
 }
 
 function fetchForecastData(cityName) {
@@ -70,14 +77,23 @@ function filterForecastData({ list }) {
   }
 }
 
+function printCurrentWeather({ weather, main, wind }) {
+  var { description, icon } = weather[0];
+  var { temp, humidity } = main;
+  var { speed } = wind;
+  var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
+
+  //   TODO: Create Elements and Append to container
+}
+
 function printForecastData({ dt_txt, weather, main, wind }) {
   var forecastDate = dt_txt.split(" ")[0];
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
-  let iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
+  var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
 
-//   TODO: Create Elements and Append to container
+  //   TODO: Create Elements and Append to container
 }
 
 button.addEventListener("click", grabUserInput);
