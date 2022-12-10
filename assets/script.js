@@ -33,26 +33,17 @@
 
 var APIkey = "e84606a3a3ed2806c22526e2f0cab7bd";
 
-var button = document.querySelector('.button');
-var searchInput = document.querySelector('.search-input');
-var citiesUl = document.querySelector('.cities');
+var button = document.querySelector(".button");
+var searchInput = document.querySelector(".search-input");
+var citiesUl = document.querySelector(".cities");
 
-function grabUserInput(){
-console.log('hello')
+function grabUserInput() {
+    var value = searchInput.value;
+    fetchForecastData(value);
+}
+
+function fetchForecastData(cityName){
+    console.log(cityName)
 }
 
 button.addEventListener("click", grabUserInput);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
