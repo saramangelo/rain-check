@@ -39,12 +39,18 @@ var citiesUl = document.querySelector(".cities");
 
 function grabUserInput() {
   var value = searchInput.value;
+  fetchCurrentWeather(value);
   fetchForecastData(value);
 }
 
+function fetchCurrentWeather(cityName) {
+  var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${APIkey}`;
+  //TODO: Finish fetch request
+}
+
 function fetchForecastData(cityName) {
-  var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIkey}`;
-    //TODO: Finish fetch request
+  var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIkey}`;
+  //TODO: Finish fetch request
 }
 
 button.addEventListener("click", grabUserInput);
