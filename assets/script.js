@@ -38,12 +38,13 @@ var searchInput = document.querySelector(".search-input");
 var citiesUl = document.querySelector(".cities");
 
 function grabUserInput() {
-    var value = searchInput.value;
-    fetchForecastData(value);
+  var value = searchInput.value;
+  fetchForecastData(value);
 }
 
-function fetchForecastData(cityName){
-    console.log(cityName)
+function fetchForecastData(cityName) {
+  var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIkey}`;
+    //TODO: Finish fetch request
 }
 
 button.addEventListener("click", grabUserInput);
