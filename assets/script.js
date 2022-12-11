@@ -37,6 +37,8 @@ var APIkey = "e84606a3a3ed2806c22526e2f0cab7bd";
 var button = document.querySelector(".button");
 var searchInput = document.querySelector(".search-input");
 var citiesUl = document.querySelector(".cities");
+var currentWeatherEl = document.querySelector(".currentWeather");
+var forecastWeatherEl = document.querySelector(".forecastWeather");
 
 function grabUserInput() {
   var value = searchInput.value;
@@ -46,13 +48,17 @@ function grabUserInput() {
 
 function fetchCurrentWeather(cityName) {
   var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${APIkey}`;
+  // interpolation backticks `
 
   fetch(currentWeatherUrl)
     .then((response) => {
+      console.log(currentWeatherUrl);
       return response.json();
     })
+    // .json gives workable data
     .then((data) => {
       printCurrentWeather(data);
+
     });
 }
 
@@ -64,16 +70,14 @@ function fetchForecastData(cityName) {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       filterForecastData(data);
     });
 }
 
 function filterForecastData({ list }) {
-  var count = 0;
-
-  while (count <= 32) {
-    printForecastData(list[count]);
-    count = count + 8;
+  for (var i = 0; i < 5; i++) {
+    printForecastData(list[i * 8]);
   }
 }
 
@@ -82,8 +86,11 @@ function printCurrentWeather({ weather, main, wind }) {
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
-
   //   TODO: Create Elements and Append to container
+  var div = document.createElement("div");
+  div.innerHTML = `<p>Temp: ${temp}</p><p>Humidity: ${humidity}</p>`
+ currentWeatherEl.appendChild(div)
+ 
 }
 
 function printForecastData({ dt_txt, weather, main, wind }) {
@@ -94,6 +101,13 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
 
   //   TODO: Create Elements and Append to container
+  // append to forcastWeatherEl, Temp, Humidity, Icon, Speed
 }
+
+// TODO: localStorage set (push it into empty [], push to []) , make it a button
+
+// TODO: 
+
+// get happens on page load, while getting, fun for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
 
 button.addEventListener("click", grabUserInput);
