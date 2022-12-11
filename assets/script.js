@@ -86,11 +86,9 @@ function printCurrentWeather({ weather, main, wind }) {
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
-  //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
-  div.innerHTML = `<p>Temp: ${temp}</p><p>Humidity: ${humidity}</p>`
- currentWeatherEl.appendChild(div)
- 
+  div.innerHTML = `<p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
+ currentWeatherEl.appendChild(div);
 }
 
 function printForecastData({ dt_txt, weather, main, wind }) {
@@ -101,13 +99,13 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
 
   //   TODO: Create Elements and Append to container
-  // append to forcastWeatherEl, Temp, Humidity, Icon, Speed
+  var div = document.createElement("div");
+  div.innerHTML = `<p>Date: ${dt_txt}</p><p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
+ forecastWeatherEl.appendChild(div);
 }
 
 // TODO: localStorage set (push it into empty [], push to []) , make it a button
 
-// TODO: 
-
-// get happens on page load, while getting, fun for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
+// TODO: get happens on page load, while getting, run for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
 
 button.addEventListener("click", grabUserInput);
