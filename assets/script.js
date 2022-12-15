@@ -126,7 +126,7 @@ function renderPreviousCities(){
     var newListItem = document.createElement("button");
     newListItem.textContent = currentValue;
     citiesUl.appendChild(newListItem);
-    newListItem.addEventListener("click", renderClickedCity);
+    newListItem.addEventListener("click", fetchCurrentWeather());
   }
 }
 

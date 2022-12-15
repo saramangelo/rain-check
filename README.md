@@ -3,7 +3,8 @@
 
 ## Description
 
-This weather application, named rain-check, features dynamically updated HyperText Markup Language (HTML) and Cascading Style Sheet (CSS) powered by the third party Application Programming Interface (API), jQuery. In this application, the user can...
+This weather application, named rain-check, features dynamically updated HyperText Markup Language (HTML) and Cascading Style Sheet (CSS) powered by JavaScript and the third party Application Programming Interface (API), jQuery. In this application, the user is presented with current and future conditions for a specific city they search, and that city is added to the search history. Additionally, when the user is viewing current weather conditions, they are presented with the city name, icon representation of weather conditions, temperatures, humidity, and wind speed. When the user is viewing future weather conditions, they are presented with the 5-day forecast that displays the date, icon representation of weather conditions, temperature, humidity, and wind speed. When the user clicks on a city in the search history, they are presented with current and future conditions for that city.
+
 
 ## Screenshot
 
@@ -36,8 +37,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-//
