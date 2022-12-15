@@ -123,13 +123,22 @@ function renderPreviousCities(){
   citiesUl.innerHTML = "";
   for (var i = 0; i<previousCities.length; i++){
     var currentValue = previousCities[i];
-    var newListItem = document.createElement("li");
+    var newListItem = document.createElement("button");
     newListItem.textContent = currentValue;
     citiesUl.appendChild(newListItem);
+    newListItem.addEventListener("click", renderClickedCity);
   }
+}
+
+
+
+
+function renderClickedCity(){
+console.log("clicked")
 }
 
 // TODO: get happens on page load, while getting, run for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
 
+
 button.addEventListener("click", grabUserInput);
-renderPreviousCities();
+
