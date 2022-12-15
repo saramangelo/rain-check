@@ -41,9 +41,12 @@ var currentWeatherEl = document.querySelector(".currentWeather");
 var forecastWeatherEl = document.querySelector(".forecastWeather");
 
 function grabUserInput() {
+  
   var value = searchInput.value;
+  saveUserInput(value);
   fetchCurrentWeather(value);
   fetchForecastData(value);
+  
 }
 
 function fetchCurrentWeather(cityName) {
@@ -101,11 +104,32 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
   div.innerHTML = `<p>Date: ${dt_txt}</p><p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
- forecastWeatherEl.appendChild(div);
+
+  forecastWeatherEl.appendChild(div);
 }
 
 // TODO: localStorage set (push it into empty [], push to []) , make it a button
+function saveUserInput (valueToSave){
+  var previousValues = JSON.parse(localStorage.getItem("previousCities")) || [];
+  previousValues.push(valueToSave);
+  previousValues = JSON.stringify(previousValues);
+  // can also use localStorage.setItem("previousCities", JSON.stringify(previousValues));
+  localStorage.setItem("previousCities", previousValues);
+  renderPreviousCities();
+}
+
+function renderPreviousCities(){
+  var previousCities = JSON.parse(localStorage.getItem("previousCities")) || [];
+  citiesUl.innerHTML = "";
+  for (var i = 0; i<previousCities.length; i++){
+    var currentValue = previousCities[i];
+    var newListItem = document.createElement("li");
+    newListItem.textContent = currentValue;
+    citiesUl.appendChild(newListItem);
+  }
+}
 
 // TODO: get happens on page load, while getting, run for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
 
 button.addEventListener("click", grabUserInput);
+renderPreviousCities();
