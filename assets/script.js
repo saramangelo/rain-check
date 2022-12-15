@@ -91,7 +91,7 @@ function printCurrentWeather({ weather, main, wind }) {
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   var div = document.createElement("div");
   div.classList.add("weather-containers")
-  div.innerHTML = `<p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
+  div.innerHTML = 'Current Weather' + `<p>Icon: ${icon}</p><p>Temp: ${temp} degrees </p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
  currentWeatherEl.appendChild(div);
 }
 
@@ -105,7 +105,7 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
   div.classList.add("weather-containers")
-  div.innerHTML = `<p>Date: ${dt_txt}</p><p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
+  div.innerHTML = 'Five-Day Forecast' + `<p>Date: ${dt_txt}</p><p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
 
   forecastWeatherEl.appendChild(div);
 }
@@ -126,6 +126,7 @@ function renderPreviousCities(){
   for (var i = 0; i<previousCities.length; i++){
     var currentValue = previousCities[i];
     var newListItem = document.createElement("button");
+    button.classList.add("cities-btn");
     newListItem.setAttribute("id", "enterCity");
     newListItem.textContent = currentValue;
     citiesUl.appendChild(newListItem);
