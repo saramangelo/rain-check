@@ -3,12 +3,12 @@
 
 ## Description
 
-This weather application, named rain-check, features dynamically updated HyperText Markup Language (HTML) and Cascading Style Sheet (CSS) powered by JavaScript and the third party Application Programming Interface (API), jQuery. In this application, the user is presented with current and future conditions for a specific city they search, and that city is added to the search history. Additionally, when the user is viewing current weather conditions, they are presented with the city name, icon representation of weather conditions, temperatures, humidity, and wind speed. When the user is viewing future weather conditions, they are presented with the 5-day forecast that displays the date, icon representation of weather conditions, temperature, humidity, and wind speed. When the user clicks on a city in the search history, they are presented with current and future conditions for that city.
+This weather application, named rain-check, features dynamically updated HyperText Markup Language (HTML) and Cascading Style Sheet (CSS) powered by JavaScript and the third party Application Programming Interfaces (API), jQuery and Server-Side APIS Google Fonts and Open Weathermap. In this application, the user is presented with current and future conditions for a specific city they search, and that city is added to the search history. Additionally, when the user is viewing current weather conditions, they are presented with the city name, icon representation of weather conditions, temperatures, humidity, and wind speed. When the user is viewing future weather conditions, they are presented with the 5-day forecast that displays the date, icon representation of weather conditions, temperature, humidity, and wind speed. When the user clicks on a city in the search history, they are presented with current and future conditions for that city.
 
 
 ## Screenshot
 
-![]()
+![raincheck-ss.png](./assets/images/raincheck-ss.png)
 
 ## Link to webpage:
 
@@ -16,7 +16,15 @@ https://saramangelo.github.io/rain-check/
 
 ## Credits
 
-API
+APIs:
+
+jQuery: https://code.jquery.com/jquery-3.6.2.min.js
+
+Google Fonts: https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Limelight&family=Lobster+Two&family=Permanent+Marker&family=Roboto&display=swap
+
+Open Weathermap: (API Key: e84606a3a3ed2806c22526e2f0cab7bd)
+Current Weather Data: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+5-Day Forecast Data: api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
 
 ## License
 
