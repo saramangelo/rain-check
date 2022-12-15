@@ -131,8 +131,6 @@ function renderPreviousCities(){
 }
 
 
-
-
 function renderClickedCity(){
 console.log("clicked")
 }
