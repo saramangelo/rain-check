@@ -90,6 +90,7 @@ function printCurrentWeather({ weather, main, wind }) {
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   var div = document.createElement("div");
+  div.classList.add("weather-containers")
   div.innerHTML = `<p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
  currentWeatherEl.appendChild(div);
 }
@@ -103,6 +104,7 @@ function printForecastData({ dt_txt, weather, main, wind }) {
 
   //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
+  div.classList.add("weather-containers")
   div.innerHTML = `<p>Date: ${dt_txt}</p><p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed}</p>`;
 
   forecastWeatherEl.appendChild(div);
