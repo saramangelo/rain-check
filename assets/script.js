@@ -66,6 +66,7 @@ function fetchCurrentWeather(cityName) {
 }
 
 function fetchForecastData(cityName) {
+  console.log(cityName)
   var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIkey}`;
 
   fetch(forecastUrl)
@@ -79,12 +80,14 @@ function fetchForecastData(cityName) {
 }
 
 function filterForecastData({ list }) {
+  forecastWeatherEl.innerHTML = '';
   for (var i = 0; i < 5; i++) {
     printForecastData(list[i * 8]);
   }
 }
 
 function printCurrentWeather({ weather, main, wind }) {
+  currentWeatherEl.innerHTML = '';
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
@@ -96,12 +99,13 @@ function printCurrentWeather({ weather, main, wind }) {
 }
 
 function printForecastData({ dt_txt, weather, main, wind }) {
+
   var forecastDate = dt_txt.split(" ")[0];
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
-
+  // var formattedDate =
   //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
   div.classList.add("weather-containers")
@@ -127,8 +131,9 @@ function renderPreviousCities(){
     var currentValue = previousCities[i];
     var newListItem = document.createElement("button");
     button.classList.add("cities-btn");
-    newListItem.setAttribute("id", "enterCity");
+    newListItem.setAttribute("class", "enterCity"); // fix css
     newListItem.textContent = currentValue;
+    newListItem.setAttribute("data-city", currentValue);
     citiesUl.appendChild(newListItem);
     newListItem.addEventListener("click", renderClickedCity);
   }
@@ -137,12 +142,13 @@ function renderPreviousCities(){
 
 
 
-function renderClickedCity(cityWeather){
-console.log("clicked")
-// use .val syntax
-var cityWeather = $("#enterCity").val().trim();
-fetchCurrentWeather(cityWeather)
-fetchForecastData(cityWeather)
+function renderClickedCity(event){
+  console.log(event.target)
+
+var element = event.target.getAttribute("data-city");
+console.log(element)
+fetchCurrentWeather(element);
+fetchForecastData(element);
 
 // call both functions fetch current and fetch forecast
 }
