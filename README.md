@@ -14,6 +14,10 @@ This weather application, named rain-check, features dynamically updated HyperTe
 
 https://saramangelo.github.io/rain-check/
 
+## Credits
+
+API
+
 ## License
 
 MIT License
