@@ -32,14 +32,19 @@
 
 // MY CODE:
 
+// API Key
 var APIkey = "e84606a3a3ed2806c22526e2f0cab7bd";
 
+// query selectors
 var button = document.querySelector(".button");
 var searchInput = document.querySelector(".search-input");
 var citiesUl = document.querySelector(".cities");
 var currentWeatherEl = document.querySelector(".currentWeather");
 var forecastWeatherEl = document.querySelector(".forecastWeather");
 
+// functions 
+
+// grab user input, call save and fetch current/forecast weather
 function grabUserInput() {
   
   var value = searchInput.value;
@@ -49,6 +54,7 @@ function grabUserInput() {
   
 }
 
+// fetch current weather, call print current weather
 function fetchCurrentWeather(cityName) {
   var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${APIkey}`;
   // interpolation backticks `
@@ -65,6 +71,7 @@ function fetchCurrentWeather(cityName) {
     });
 }
 
+// fetch forecast data, call filter forecast data
 function fetchForecastData(cityName) {
   console.log(cityName)
   var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIkey}`;
@@ -79,6 +86,7 @@ function fetchForecastData(cityName) {
     });
 }
 
+// filter forecast data, call print forecast data
 function filterForecastData({ list }) {
   forecastWeatherEl.innerHTML = '';
   for (var i = 0; i < 5; i++) {
@@ -86,6 +94,7 @@ function filterForecastData({ list }) {
   }
 }
 
+// print current weather, need to clear out what's already there, (inner.html = ''), create, update, append
 function printCurrentWeather({ weather, main, wind }) {
   currentWeatherEl.innerHTML = '';
   var { description, icon } = weather[0];
@@ -98,6 +107,7 @@ function printCurrentWeather({ weather, main, wind }) {
  currentWeatherEl.appendChild(div);
 }
 
+// print forecast data, create, update, append
 function printForecastData({ dt_txt, weather, main, wind }) {
 
   var forecastDate = dt_txt.split(" ")[0];
@@ -114,7 +124,8 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   forecastWeatherEl.appendChild(div);
 }
 
-// TODO: localStorage set (push it into empty [], push to []) , make it a button
+// save user input, use local storage, call render previous cities
+// localStorage set (push it into empty [], push to []) , make it a button
 function saveUserInput (valueToSave){
   var previousValues = JSON.parse(localStorage.getItem("previousCities")) || [];
   previousValues.push(valueToSave);
@@ -124,6 +135,7 @@ function saveUserInput (valueToSave){
   renderPreviousCities();
 }
 
+// render previous cities, clear out what's already there, create button, update, append
 function renderPreviousCities(){
   var previousCities = JSON.parse(localStorage.getItem("previousCities")) || [];
   citiesUl.innerHTML = "";
@@ -139,9 +151,7 @@ function renderPreviousCities(){
   }
 }
 
-
-
-
+// render clicked city, call fetch current weather, fetch forecast data
 function renderClickedCity(event){
   console.log(event.target)
 
@@ -149,12 +159,9 @@ var element = event.target.getAttribute("data-city");
 console.log(element)
 fetchCurrentWeather(element);
 fetchForecastData(element);
-
-// call both functions fetch current and fetch forecast
 }
 
-// TODO: get happens on page load, while getting, run for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
 
-
+// event listener
 button.addEventListener("click", grabUserInput);
 
