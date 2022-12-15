@@ -124,15 +124,24 @@ function renderPreviousCities(){
   for (var i = 0; i<previousCities.length; i++){
     var currentValue = previousCities[i];
     var newListItem = document.createElement("button");
+    newListItem.setAttribute("id", "enterCity");
     newListItem.textContent = currentValue;
     citiesUl.appendChild(newListItem);
-    newListItem.addEventListener("click", fetchCurrentWeather());
+    newListItem.addEventListener("click", renderClickedCity);
   }
 }
 
 
-function renderClickedCity(){
+
+
+function renderClickedCity(cityWeather){
 console.log("clicked")
+// use .val syntax
+var cityWeather = $("#enterCity").val().trim();
+fetchCurrentWeather(cityWeather)
+fetchForecastData(cityWeather)
+
+// call both functions fetch current and fetch forecast
 }
 
 // TODO: get happens on page load, while getting, run for loop for each city that's saved in the array - make a button, append in designated ahead, attach event listener in for loop
