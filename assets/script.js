@@ -103,7 +103,7 @@ function printCurrentWeather({ weather, main, wind }) {
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   var div = document.createElement("div");
   div.classList.add("weather-containers")
-  div.innerHTML = 'Current Weather' + `<p>Icon: ${icon}</p><p>Temp: ${temp} degrees </p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+  div.innerHTML = 'Current Weather' + `<p> <img src = "${iconUrl}"/><p>Temp: ${temp} degrees </p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
  currentWeatherEl.appendChild(div);
 }
 
@@ -115,11 +115,11 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
-  // var formattedDate =
+  // var formattedDate = dayjs(forecastDate).format('MM/DD/YYYY');
   //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
   div.classList.add("weather-containers")
-  div.innerHTML = 'Five-Day Forecast' + `<p>Date: ${dt_txt}</p><p>Icon: ${icon}</p><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+  div.innerHTML = 'Five-Day Forecast' + `<p>Date: ${dt_txt}</p><p> <img src = "${iconUrl}"/><p>Temp: ${temp}</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
 
   forecastWeatherEl.appendChild(div);
 }
