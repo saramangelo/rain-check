@@ -30,6 +30,17 @@
 // BUTTONS FOR EACH CITY
 */
 
+/* 
+1. click button
+2. grabUserInput
+3. saveUserInput --> renderPreviousCities (create, update, append buttons) --> event listener on buttons to call renderClickedCity
+   fetchCurrentWeather --> printCurrentWeather (create, update, append current weather card)
+   fetchForecastData --> filterForecastData --> printForecastData (create, update, append forecast weather cards)
+4. renderClickedCity --> fetchCurrentWeather(of element clicked)
+                     --> fetchForecastData(of element clicked)
+*/
+
+
 // MY CODE:
 
 // API Key
@@ -163,3 +174,5 @@ function renderClickedCity(event) {
 
 // event listener
 button.addEventListener("click", grabUserInput);
+
+
