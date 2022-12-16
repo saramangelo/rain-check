@@ -34,7 +34,7 @@
   
   /* body */
   body {
-    font-family: 'Lobster TWo';
+    font-family: bebas neue;
     background: var(--bg_main);
     color: var(--text_dark);
     padding: 70px;
@@ -55,10 +55,14 @@
     position:relative;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   
   /* heading */
   .heading {
+    display: flex;
+    justify-content: center;
+    font-family: 'Lobster Two';
     font-weight: bold;
     font-size: 4rem;
     letter-spacing: 0.02em;
@@ -67,6 +71,7 @@
   
   /* top banner and search input */
   .top-banner .search-input {
+
     font-size: 2rem;
     height: 40px;
     padding: 5px 5px 10px;
@@ -77,24 +82,23 @@
   .weather-containers {
     margin: 20px;
     padding: 5px;
-    border: solid 5px;
+    border: solid 5px #4ca8af;;
     border-radius: 10px;
     width: fit-content;
     display: inline-block;
   }
 
-  /* cities buttons */
 
-.cities {
-  display: flex;
 
-}
-
-/* enter city class made on js */
+/* cities buttons made on js */
 .enterCity {
   margin: 20px;
   padding: 10px;
-
+  font-family: bebas neue;
+  background-color: #4ca8af;
+  color: white;
+  border-radius: 10px;
+  box-shadow: none;
 }
   
 
