@@ -15,7 +15,7 @@
   
   /* body */
   body {
-    font-family: bebas neue;
+    font-family: roboto;
     background: var(--bg_main);
     color: var(--text_light);
     padding: 70px;
@@ -35,6 +35,7 @@
     /* check weather submit button */
     .waves-effect {
       border-radius: 8px;
+      font-family: roboto;
     }
   
   /* cities section container (parent to ul) */
