@@ -114,7 +114,7 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
-  var ${ icon } = `https://openweathermap.org/img/w/${icon}.png`;
+  var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   // var formattedDate =
   //   TODO: Create Elements and Append to container
   var div = document.createElement("div");
