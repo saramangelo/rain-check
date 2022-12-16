@@ -46,7 +46,7 @@ body {
   border: none;
 }
 
-/* section 1 */
+/* top banner */
 .top-banner {
   color: var(--text_light);
   position: relative;
@@ -85,6 +85,11 @@ body {
   border-radius: 10px;
   width: fit-content;
   display: inline-block;
+}
+
+img {
+  margin: 0;
+  padding: 10px;
 }
 
 /* media queries */

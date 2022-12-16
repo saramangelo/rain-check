@@ -104,7 +104,7 @@ function printCurrentWeather({ dt_txt, weather, main, wind }) {
   div.classList.add("weather-containers");
   div.innerHTML =
     "Current Weather" +
-    `<p>${formattedDate}</p><img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+    `<img src = "${iconUrl}"/><p>${formattedDate}</p><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
   currentWeatherEl.appendChild(div);
 }
 
@@ -120,7 +120,7 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   div.classList.add("weather-containers");
   div.innerHTML =
     "5-Day Forecast" +
-    `<p>${formattedDate}</p><p> <img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+    `<img src = "${iconUrl}"/><p>${formattedDate}</p><p><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
   forecastWeatherEl.appendChild(div);
 }
 
