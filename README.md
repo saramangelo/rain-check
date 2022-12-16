@@ -22,7 +22,6 @@ jQuery: https://code.jquery.com/jquery-3.6.2.min.js
 
 Materialize: https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css
 
-
 Google Fonts: https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Limelight&family=Lobster+Two&family=Permanent+Marker&family=Roboto&display=swap
 
 Open Weathermap: (API Key: e84606a3a3ed2806c22526e2f0cab7bd)

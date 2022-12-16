@@ -1,147 +1,135 @@
 /* root */
 :root {
-    --bg_main: #2160cb;
-    --text_light: #fff;
+  --bg_main: #2160cb;
+  --text_light: #fff;
+}
+/* universal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+}
 
-  }
-  /* universal */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-weight: normal;
-  }
+/* body */
+body {
+  font-family: roboto;
+  background: var(--bg_main);
+  color: var(--text_light);
+  padding: 70px;
+}
 
-  
-  /* body */
-  body {
-    font-family: roboto;
-    background: var(--bg_main);
-    color: var(--text_light);
-    padding: 70px;
-  }
+/* search input */
+.search-input {
+  justify-content: center;
+  margin: 10px;
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
+}
 
-  /* search input */
-  .search-input {
+/* check weather submit button */
+.waves-effect {
+  border-radius: 8px;
+  font-family: "unbounded";
+}
 
-    justify-content: center;
-    margin: 10px;
-    border: none;
-    background: none;
-    outline: none;
-    color: inherit;
-  }
-
-    /* check weather submit button */
-    .waves-effect {
-      border-radius: 8px;
-      font-family: 'unbounded';
-    }
-  
-
-  /* cities buttons made on js */
+/* cities buttons made on js */
 .enterCity {
-
   margin: 20px;
   padding: 10px;
-  font-family: 'unbounded';
+  font-family: "unbounded";
   background-color: #4ca8af;
   color: white;
   border-radius: 10px;
   border: none;
-
 }
-  
-  /* section 1 */
+
+/* section 1 */
+.top-banner {
+  color: var(--text_light);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "unbounded";
+}
+
+/* heading */
+.heading {
+  display: flex;
+  justify-content: center;
+  font-family: "Lobster Two";
+  font-weight: bold;
+  font-size: 4rem;
+  letter-spacing: 0.02em;
+  padding: 0 0 30px 0;
+}
+
+/* top banner and search input */
+.top-banner .search-input {
+  font-family: "unbounded";
+  font-size: 2rem;
+  height: 40px;
+  padding: 5px 5px 10px;
+  border-bottom: 1px solid;
+}
+
+/* current and forecast weather containers */
+.weather-containers {
+  font-family: "unbounded";
+  margin: 15px;
+  padding: 10px;
+  border: solid 5px #4ca8af;
+  border-radius: 10px;
+  width: fit-content;
+  display: inline-block;
+}
+
+/* media queries */
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 30px;
+  }
+
+  .cities-section .cities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .heading,
+  .cities-section {
+    font-size: 3rem;
+  }
+
+  .cities-section {
+    margin-top: 20px;
+  }
+
   .top-banner {
-    color: var(--text_light);
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'unbounded';
-  }
-  
-  /* heading */
-  .heading {
-    display: flex;
-    justify-content: center;
-    font-family: 'Lobster Two';
-    font-weight: bold;
-    font-size: 4rem;
-    letter-spacing: 0.02em;
-    padding: 0 0 30px 0;
-  }
-  
-  /* top banner and search input */
-  .top-banner .search-input {
-    font-family: 'unbounded';
-    font-size: 2rem;
-    height: 40px;
-    padding: 5px 5px 10px;
-    border-bottom: 1px solid;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px 0 0 0;
+    position: static;
+    max-width: none;
+    min-height: 0;
+    margin-top: 10px;
   }
 
-  /* current and forecast weather containers */
-  .weather-containers {
-    font-family: 'unbounded';
-    margin: 15px;
-    padding: 10px;
-    border: solid 5px #4ca8af;;
-    border-radius: 10px;
-    width: fit-content;
-    display: inline-block;
+  .cities-section .cities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    padding: 15px;
   }
 
-
-
-
-  
-
-  /* media queries */
-  @media screen and (max-width: 1000px) {
-    body {
-      padding: 30px;
-    }
-    
-    .cities-section .cities {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .cities-section .cities {
+    grid-template-columns: repeat(1, 1fr);
   }
-  
-  @media screen and (max-width: 700px) {
-    .heading,
-    .cities-section  {
-      font-size: 3rem;
-    }
-    
-    .cities-section {
-      margin-top: 20px;
-    }
-    
-    .top-banner {
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      margin: 20px 0 0 0;
-      position: static;
-      max-width: none;
-      min-height: 0;
-      margin-top: 10px;
-    }
-    
-    .cities-section .cities {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media screen and (max-width: 500px) {
-    body {
-      padding: 15px;
-    }
-    
-    .cities-section .cities {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  
+}
