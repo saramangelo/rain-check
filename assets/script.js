@@ -76,6 +76,7 @@ function fetchCurrentWeather(cityName) {
     // .json gives workable data
     .then((data) => {
       printCurrentWeather(data);
+      console.log(data);
     });
 }
 
@@ -89,7 +90,7 @@ function fetchForecastData(cityName) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+
       filterForecastData(data);
     });
 }
@@ -103,8 +104,9 @@ function filterForecastData({ list }) {
 }
 
 // print current weather, need to clear out what's already there, (inner.html = ''), create, update, append
-function printCurrentWeather({ dt_txt, weather, main, wind }) {
+function printCurrentWeather({ dt_txt, weather, main, wind, name }) {
   currentWeatherEl.innerHTML = "";
+  console.log(name)
   var currentDate = dt_txt;
   var formattedDate = dayjs(currentDate).format("MM/DD/YYYY");
   var { description, icon } = weather[0];
@@ -115,7 +117,7 @@ function printCurrentWeather({ dt_txt, weather, main, wind }) {
   div.classList.add("weather-containers");
   div.innerHTML =
     "Current Weather" +
-    `<img src = "${iconUrl}"/><p>${formattedDate}</p><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+    `${name}<img src = "${iconUrl}"/><p>${formattedDate}</p><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
   currentWeatherEl.appendChild(div);
 }
 
