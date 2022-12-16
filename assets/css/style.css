@@ -11,26 +11,7 @@
     box-sizing: border-box;
     font-weight: normal;
   }
-  /* check weather submit button */
-  .button {
-    background-color: #4ca8af;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 8px;
-  }
-   
-/* search input */
-  .search-input {
-    border: none;
-    background: none;
-    outline: none;
-    color: inherit;
-  }
+
   
   /* body */
   body {
@@ -39,15 +20,51 @@
     color: var(--text_dark);
     padding: 70px;
   }
+
+  /* search input */
+  .search-input {
+
+    justify-content: center;
+    margin: 10px;
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+  }
+
+    /* check weather submit button */
+    .button {
+      background-color: #4ca8af;
+      border: none;
+      color: rgb(255, 255, 255);
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+  
   /* cities section container (parent to ul) */
-  .container {
-    
+  /* .container {
+
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
-  }
+  } */
   
+  /* cities buttons made on js */
+.enterCity {
+
+  margin: 20px;
+  padding: 10px;
+  font-family: bebas neue;
+  background-color: #4ca8af;
+  color: white;
+  border-radius: 10px;
+  box-shadow: none;
+}
   
   /* section 1 */
   .top-banner {
@@ -90,17 +107,7 @@
 
 
 
-/* cities buttons made on js */
-.enterCity {
-  margin: 20px;
-  padding: 10px;
-  font-family: bebas neue;
-  background-color: #4ca8af;
-  color: white;
-  border-radius: 10px;
-  box-shadow: none;
 
-}
   
 
   /* media queries */
