@@ -95,15 +95,17 @@ function filterForecastData({ list }) {
 }
 
 // print current weather, need to clear out what's already there, (inner.html = ''), create, update, append
-function printCurrentWeather({ weather, main, wind }) {
+function printCurrentWeather({ dt_txt, weather, main, wind }) {
   currentWeatherEl.innerHTML = '';
+  var currentDate = dt_txt;
+  var formattedDate = dayjs(currentDate).format('MM/DD/YYYY');
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   var div = document.createElement("div");
   div.classList.add("weather-containers")
-  div.innerHTML = 'Current Weather' + `<p> <img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0 F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+  div.innerHTML = 'Current Weather' + `<p>${formattedDate}</p><img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
  currentWeatherEl.appendChild(div);
 }
 
@@ -117,8 +119,8 @@ function printForecastData({ dt_txt, weather, main, wind }) {
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   var formattedDate = dayjs(forecastDate).format('MM/DD/YYYY');
   var div = document.createElement("div");
-  div.classList.add("weather-containers")
-  div.innerHTML = 'Five-Day Forecast' + `<p>Date: ${formattedDate}</p><p> <img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0 F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+  div.classList.add("weather-containers");
+  div.innerHTML = '5-Day Forecast' + `<p>${formattedDate}</p><p> <img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
 
   forecastWeatherEl.appendChild(div);
 }

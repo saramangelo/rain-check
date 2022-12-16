@@ -35,7 +35,7 @@
     /* check weather submit button */
     .waves-effect {
       border-radius: 8px;
-      font-family: roboto;
+      font-family: 'unbounded';
     }
   
 
@@ -44,7 +44,7 @@
 
   margin: 20px;
   padding: 10px;
-  font-family: roboto;
+  font-family: 'unbounded';
   background-color: #4ca8af;
   color: white;
   border-radius: 10px;
@@ -59,6 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'unbounded';
   }
   
   /* heading */
@@ -74,7 +75,7 @@
   
   /* top banner and search input */
   .top-banner .search-input {
-
+    font-family: 'unbounded';
     font-size: 2rem;
     height: 40px;
     padding: 5px 5px 10px;
@@ -83,8 +84,9 @@
 
   /* current and forecast weather containers */
   .weather-containers {
-    margin: 20px;
-    padding: 5px;
+    font-family: 'unbounded';
+    margin: 15px;
+    padding: 10px;
     border: solid 5px #4ca8af;;
     border-radius: 10px;
     width: fit-content;
