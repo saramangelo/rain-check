@@ -38,26 +38,18 @@
       font-family: roboto;
     }
   
-  /* cities section container (parent to ul) */
-  /* .container {
 
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  } */
-  
   /* cities buttons made on js */
 .enterCity {
 
   margin: 20px;
   padding: 10px;
-  font-family: bebas neue;
+  font-family: roboto;
   background-color: #4ca8af;
   color: white;
   border-radius: 10px;
-  box-shadow: none;
-  
+  border: none;
+
 }
   
   /* section 1 */
