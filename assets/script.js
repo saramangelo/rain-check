@@ -42,16 +42,14 @@ var citiesUl = document.querySelector(".cities");
 var currentWeatherEl = document.querySelector(".currentWeather");
 var forecastWeatherEl = document.querySelector(".forecastWeather");
 
-// functions 
+// functions
 
 // grab user input, call save and fetch current/forecast weather
 function grabUserInput() {
-  
   var value = searchInput.value;
   saveUserInput(value);
   fetchCurrentWeather(value);
   fetchForecastData(value);
-  
 }
 
 // fetch current weather, call print current weather
@@ -67,13 +65,12 @@ function fetchCurrentWeather(cityName) {
     // .json gives workable data
     .then((data) => {
       printCurrentWeather(data);
-
     });
 }
 
 // fetch forecast data, call filter forecast data
 function fetchForecastData(cityName) {
-  console.log(cityName)
+  console.log(cityName);
   var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIkey}`;
 
   fetch(forecastUrl)
@@ -88,7 +85,7 @@ function fetchForecastData(cityName) {
 
 // filter forecast data, call print forecast data
 function filterForecastData({ list }) {
-  forecastWeatherEl.innerHTML = '';
+  forecastWeatherEl.innerHTML = "";
   for (var i = 0; i < 5; i++) {
     printForecastData(list[i * 8]);
   }
@@ -96,38 +93,40 @@ function filterForecastData({ list }) {
 
 // print current weather, need to clear out what's already there, (inner.html = ''), create, update, append
 function printCurrentWeather({ dt_txt, weather, main, wind }) {
-  currentWeatherEl.innerHTML = '';
+  currentWeatherEl.innerHTML = "";
   var currentDate = dt_txt;
-  var formattedDate = dayjs(currentDate).format('MM/DD/YYYY');
+  var formattedDate = dayjs(currentDate).format("MM/DD/YYYY");
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
   var div = document.createElement("div");
-  div.classList.add("weather-containers")
-  div.innerHTML = 'Current Weather' + `<p>${formattedDate}</p><img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
- currentWeatherEl.appendChild(div);
+  div.classList.add("weather-containers");
+  div.innerHTML =
+    "Current Weather" +
+    `<p>${formattedDate}</p><img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
+  currentWeatherEl.appendChild(div);
 }
 
 // print forecast data, create, update, append
 function printForecastData({ dt_txt, weather, main, wind }) {
-
   var forecastDate = dt_txt.split(" ")[0];
   var { description, icon } = weather[0];
   var { temp, humidity } = main;
   var { speed } = wind;
   var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
-  var formattedDate = dayjs(forecastDate).format('MM/DD/YYYY');
+  var formattedDate = dayjs(forecastDate).format("MM/DD/YYYY");
   var div = document.createElement("div");
   div.classList.add("weather-containers");
-  div.innerHTML = '5-Day Forecast' + `<p>${formattedDate}</p><p> <img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
-
+  div.innerHTML =
+    "5-Day Forecast" +
+    `<p>${formattedDate}</p><p> <img src = "${iconUrl}"/><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
   forecastWeatherEl.appendChild(div);
 }
 
 // save user input, use local storage, call render previous cities
 // localStorage set (push it into empty [], push to []) , make it a button
-function saveUserInput (valueToSave){
+function saveUserInput(valueToSave) {
   var previousValues = JSON.parse(localStorage.getItem("previousCities")) || [];
   previousValues.push(valueToSave);
   previousValues = JSON.stringify(previousValues);
@@ -137,14 +136,14 @@ function saveUserInput (valueToSave){
 }
 
 // render previous cities, clear out what's already there, create button, update, append
-function renderPreviousCities(){
+function renderPreviousCities() {
   var previousCities = JSON.parse(localStorage.getItem("previousCities")) || [];
   citiesUl.innerHTML = "";
-  for (var i = 0; i<previousCities.length; i++){
+  for (var i = 0; i < previousCities.length; i++) {
     var currentValue = previousCities[i];
     var newListItem = document.createElement("button");
     button.classList.add("waves-effect");
-    newListItem.setAttribute("class", "enterCity"); 
+    newListItem.setAttribute("class", "enterCity");
     newListItem.textContent = currentValue;
     newListItem.setAttribute("data-city", currentValue);
     citiesUl.appendChild(newListItem);
@@ -153,16 +152,14 @@ function renderPreviousCities(){
 }
 
 // render clicked city, call fetch current weather, fetch forecast data
-function renderClickedCity(event){
-  console.log(event.target)
+function renderClickedCity(event) {
+  console.log(event.target);
 
-var element = event.target.getAttribute("data-city");
-console.log(element)
-fetchCurrentWeather(element);
-fetchForecastData(element);
+  var element = event.target.getAttribute("data-city");
+  console.log(element);
+  fetchCurrentWeather(element);
+  fetchForecastData(element);
 }
-
 
 // event listener
 button.addEventListener("click", grabUserInput);
-
