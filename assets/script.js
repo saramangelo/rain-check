@@ -36,7 +36,7 @@
 var APIkey = "e84606a3a3ed2806c22526e2f0cab7bd";
 
 // query selectors
-var button = document.querySelector(".button");
+var button = document.querySelector(".waves-effect");
 var searchInput = document.querySelector(".search-input");
 var citiesUl = document.querySelector(".cities");
 var currentWeatherEl = document.querySelector(".currentWeather");
@@ -142,7 +142,7 @@ function renderPreviousCities(){
   for (var i = 0; i<previousCities.length; i++){
     var currentValue = previousCities[i];
     var newListItem = document.createElement("button");
-    button.classList.add("cities-btn");
+    button.classList.add("waves-effect");
     newListItem.setAttribute("class", "enterCity"); // fix css
     newListItem.textContent = currentValue;
     newListItem.setAttribute("data-city", currentValue);

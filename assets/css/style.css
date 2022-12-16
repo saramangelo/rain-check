@@ -17,7 +17,7 @@
   body {
     font-family: bebas neue;
     background: var(--bg_main);
-    color: var(--text_dark);
+    color: var(--text_light);
     padding: 70px;
   }
 
@@ -33,15 +33,7 @@
   }
 
     /* check weather submit button */
-    .button {
-      background-color: #4ca8af;
-      border: none;
-      color: rgb(255, 255, 255);
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
+    .waves-effect {
       border-radius: 8px;
     }
   
@@ -64,6 +56,7 @@
   color: white;
   border-radius: 10px;
   box-shadow: none;
+  
 }
   
   /* section 1 */
