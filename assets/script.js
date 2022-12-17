@@ -116,7 +116,7 @@ function printCurrentWeather({ dt_txt, weather, main, wind, name }) {
   var div = document.createElement("div");
   div.classList.add("weather-containers");
   div.innerHTML =
-    "Current Weather" +
+    "Current Weather for " +
     `${name}<img src = "${iconUrl}"/><p>${formattedDate}</p><p>Temp: ${temp} \u00B0F</p><p>Humidity: ${humidity}</p><p>Wind Speed: ${speed} mph</p>`;
   currentWeatherEl.appendChild(div);
 }
