@@ -58,6 +58,7 @@ var forecastWeatherEl = document.querySelector(".forecastWeather");
 // grab user input, call save and fetch current/forecast weather
 function grabUserInput() {
   var value = searchInput.value;
+  searchInput.value = '';
   saveUserInput(value);
   fetchCurrentWeather(value);
   fetchForecastData(value);
